@@ -313,3 +313,113 @@ footer a:hover{
     text-align:center;
   }
 }
+/* ========================
+   CONTACT SECTION
+======================== */
+
+/* Container & Grid */
+section {
+  padding: 80px 10%;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.section-title h2 {
+  font-size: 32px;
+  color: #1e3a5f; /* Primary color */
+}
+
+.section-title p {
+  font-size: 18px;
+  color: #555;
+  max-width: 700px;
+  margin: 10px auto 0;
+  opacity: 0.9;
+}
+
+section .grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  align-items: start;
+}
+
+/* Contact Form Card */
+section .card {
+  background: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+section .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+/* Form Styling */
+section .card form {
+  display: flex;
+  flex-direction: column;
+}
+
+section .card form label {
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #1e3a5f;
+}
+
+section .card form input,
+section .card form textarea {
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: 1.5px solid #cbd5e1;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+section .card form input:focus,
+section .card form textarea:focus {
+  outline: none;
+  border-color: #38bdf8; /* Secondary color */
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.3);
+}
+
+/* Submit Button */
+section .card form button.btn-primary {
+  background: #38bdf8;
+  color: #fff;
+  padding: 15px;
+  border-radius: 10px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+section .card form button.btn-primary:hover {
+  background: #2c7be5;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(56, 189, 248, 0.4);
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  section {
+    padding: 60px 5%;
+  }
+
+  section .grid {
+    grid-template-columns: 1fr;
+  }
+
+  section .card form button.btn-primary {
+    width: 100%;
+  }
+}
