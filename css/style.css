@@ -1,4 +1,4 @@
-/* ========== ROOT ========= */
+/* ================= ROOT ================= */
 :root{
   --primary:#1e3a5f;
   --secondary:#2c7be5;
@@ -7,30 +7,30 @@
   --text:#555;
 }
 
-/* ========== RESET ========= */
+/* ================= RESET ================= */
 *{
   margin:0;
   padding:0;
   box-sizing:border-box;
-  font-family:Segoe UI, Arial, sans-serif;
+  font-family:"Segoe UI", Arial, sans-serif;
 }
 
 body{
-  line-height:1.6;
   color:#222;
+  line-height:1.6;
 }
 
-/* ========== NAVBAR ========= */
+/* ================= NAVBAR ================= */
 nav{
-  background:#fff;
-  padding:16px 8%;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
   position:sticky;
   top:0;
   z-index:1000;
-  box-shadow:0 4px 15px rgba(0,0,0,.06);
+  background:#fff;
+  padding:15px 8%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  box-shadow:0 3px 15px rgba(0,0,0,.08);
 }
 
 nav h2{
@@ -38,7 +38,7 @@ nav h2{
   font-size:22px;
 }
 
-/* Menu list (PC & Tablet default) */
+/* Menu (PC & Tablet) */
 nav ul{
   list-style:none;
   display:flex;
@@ -55,9 +55,9 @@ nav ul li a:hover{
   color:var(--secondary);
 }
 
-/* ========== TOGGLE BUTTON ========= */
+/* Toggle Button (Mobile only) */
 .menu-toggle{
-  display:none; /* hidden on PC & Tablet */
+  display:none;
   background:none;
   border:none;
   cursor:pointer;
@@ -72,16 +72,16 @@ nav ul li a:hover{
   border-radius:3px;
 }
 
-/* ========== HERO ========= */
+/* ================= HERO ================= */
 .hero{
   min-height:85vh;
   background:linear-gradient(135deg,#667eea,#764ba2);
+  color:#fff;
   display:flex;
   align-items:center;
   justify-content:center;
   text-align:center;
   padding:20px;
-  color:#fff;
 }
 
 .hero h1{
@@ -93,31 +93,37 @@ nav ul li a:hover{
   max-width:760px;
   margin:auto;
   font-size:18px;
+  opacity:.95;
 }
 
-.btns{
+/* HERO BUTTONS – DESKTOP */
+.hero .btns{
   margin-top:30px;
+  display:flex;
+  justify-content:center;
+  gap:18px;
 }
 
+.hero .btns a{
+  padding:14px 34px;
+  font-size:16px;
+  border-radius:8px;
+  font-weight:600;
+  text-decoration:none;
+}
+
+/* Buttons */
 .btn-primary{
   background:#38bdf8;
   color:#fff;
-  padding:12px 26px;
-  border-radius:6px;
-  text-decoration:none;
-  margin:5px;
 }
 
 .btn-outline{
   border:2px solid #38bdf8;
   color:#fff;
-  padding:12px 26px;
-  border-radius:6px;
-  text-decoration:none;
-  margin:5px;
 }
 
-/* ========== SECTIONS ========= */
+/* ================= SECTIONS ================= */
 section{
   padding:80px 10%;
 }
@@ -142,7 +148,7 @@ section{
   color:var(--text);
 }
 
-/* ========== GRID ========= */
+/* ================= GRID & CARDS ================= */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -156,7 +162,20 @@ section{
   box-shadow:0 12px 30px rgba(0,0,0,.08);
 }
 
-/* ========== FOUNDER ========= */
+.card h3{
+  color:var(--primary);
+  margin-bottom:10px;
+}
+
+.card p{
+  color:var(--text);
+}
+
+/* ================= FOUNDER ================= */
+.founder{
+  background:var(--light);
+}
+
 .founder-box{
   display:flex;
   gap:40px;
@@ -169,7 +188,15 @@ section{
   border-radius:16px;
 }
 
-/* ========== CHECKLIST ========= */
+.quote{
+  margin-top:20px;
+  padding-left:18px;
+  border-left:4px solid var(--secondary);
+  color:#64748b;
+  font-style:italic;
+}
+
+/* ================= CHECKLIST ================= */
 .checklist{
   max-width:700px;
   margin:auto;
@@ -183,7 +210,7 @@ section{
   margin-right:8px;
 }
 
-/* ========== FOOTER ========= */
+/* ================= FOOTER ================= */
 footer{
   background:var(--dark);
   color:#cbd5e1;
@@ -219,10 +246,22 @@ footer a:hover{
   color:#94a3b8;
 }
 
-/* ========== MOBILE ONLY ========= */
+/* ================= TABLET ================= */
+@media (max-width:1024px){
+  .hero h1{
+    font-size:34px;
+  }
+
+  .hero .btns a{
+    padding:12px 28px;
+    font-size:15px;
+  }
+}
+
+/* ================= MOBILE ================= */
 @media (max-width:768px){
 
-  /* show toggle ONLY on mobile */
+  /* Toggle visible */
   .menu-toggle{
     display:block;
   }
@@ -248,10 +287,27 @@ footer a:hover{
     padding:14px 0;
   }
 
+  /* Hero */
   .hero h1{
-    font-size:30px;
+    font-size:28px;
   }
 
+  /* HERO BUTTONS – MOBILE */
+  .hero .btns{
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+  }
+
+  .hero .btns a{
+    width:100%;
+    max-width:280px;
+    padding:14px;
+    font-size:15px;
+    text-align:center;
+  }
+
+  /* Founder */
   .founder-box{
     flex-direction:column;
     text-align:center;
