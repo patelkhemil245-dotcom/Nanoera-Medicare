@@ -1,134 +1,3 @@
-/* ================================
-   RESPONSIVE DESIGN
-================================ */
-
-/* LARGE SCREENS (PC) */
-@media (min-width:1200px){
-  section{
-    padding:90px 12%;
-  }
-  .hero h1{
-    font-size:48px;
-  }
-  .hero p{
-    font-size:20px;
-  }
-}
-
-/* TABLET (768px – 1024px) */
-@media (max-width:1024px){
-  nav{
-    padding:15px 6%;
-  }
-
-  nav ul{
-    gap:18px;
-  }
-
-  section{
-    padding:70px 8%;
-  }
-
-  .hero{
-    height:auto;
-    padding:80px 20px;
-  }
-
-  .hero h1{
-    font-size:36px;
-  }
-
-  .founder-box{
-    grid-template-columns:1fr 1.5fr;
-  }
-}
-
-/* MOBILE (Below 768px) */
-@media (max-width:768px){
-  nav{
-    flex-direction:column;
-    gap:10px;
-  }
-
-  nav ul{
-    flex-wrap:wrap;
-    justify-content:center;
-    gap:15px;
-  }
-
-  .hero{
-    height:auto;
-    padding:70px 15px;
-  }
-
-  .hero h1{
-    font-size:30px;
-  }
-
-  .hero p{
-    font-size:16px;
-  }
-
-  .hero a{
-    display:inline-block;
-    width:100%;
-    max-width:260px;
-  }
-
-  section{
-    padding:60px 6%;
-  }
-
-  .section-title h2{
-    font-size:28px;
-  }
-
-  .grid{
-    gap:20px;
-  }
-
-  .founder-box{
-    grid-template-columns:1fr;
-    text-align:center;
-  }
-
-  .founder img{
-    margin:auto;
-  }
-
-  .quote{
-    margin-left:0;
-    border-left:none;
-    border-top:3px solid var(--secondary);
-    padding-top:15px;
-  }
-
-  footer{
-    padding:50px 6%;
-  }
-}
-
-/* SMALL MOBILE (Below 480px) */
-@media (max-width:480px){
-  .hero h1{
-    font-size:26px;
-  }
-
-  .hero p{
-    font-size:15px;
-  }
-
-  .section-title h2{
-    font-size:24px;
-  }
-
-  .card{
-    padding:22px;
-  }
-}
-
-
-
 :root{
   --primary:#1e3a5f;
   --secondary:#2c7be5;
@@ -146,9 +15,10 @@
 body{
   background:#fff;
   color:#222;
+  line-height:1.6;
 }
 
-/* NAVBAR */
+/* ================= NAVBAR ================= */
 nav{
   position:sticky;
   top:0;
@@ -181,7 +51,22 @@ nav ul li a:hover{
   color:var(--secondary);
 }
 
-/* HERO */
+/* TOGGLE BUTTON */
+.menu-toggle{
+  display:none;
+  flex-direction:column;
+  cursor:pointer;
+}
+
+.menu-toggle span{
+  height:3px;
+  width:25px;
+  background:#333;
+  margin:4px 0;
+  border-radius:2px;
+}
+
+/* ================= HERO ================= */
 .hero{
   height:85vh;
   background:linear-gradient(135deg,#6a7bdc,#7f53ac);
@@ -215,6 +100,7 @@ nav ul li a:hover{
   text-decoration:none;
   margin:5px;
   font-weight:500;
+  display:inline-block;
 }
 
 .btn-primary{
@@ -227,7 +113,7 @@ nav ul li a:hover{
   color:#fff;
 }
 
-/* SECTIONS */
+/* ================= SECTIONS ================= */
 section{
   padding:80px 10%;
 }
@@ -246,13 +132,18 @@ section{
   color:var(--primary);
 }
 
+.section-title h3{
+  margin-top:10px;
+  color:#333;
+}
+
 .section-title p{
   max-width:750px;
   margin:15px auto 0;
   color:var(--text);
 }
 
-/* GRID & CARDS */
+/* ================= GRID & CARDS ================= */
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -273,10 +164,9 @@ section{
 
 .card p{
   color:var(--text);
-  line-height:1.6;
 }
 
-/* FOUNDER */
+/* ================= FOUNDER ================= */
 .founder{
   background:var(--light);
 }
@@ -302,7 +192,7 @@ section{
   color:#6b7280;
 }
 
-/* CHECKLIST */
+/* ================= CHECKLIST ================= */
 .checklist div{
   background:var(--light);
   padding:15px 20px;
@@ -319,7 +209,7 @@ section{
   font-weight:bold;
 }
 
-/* FOOTER */
+/* ================= FOOTER ================= */
 footer{
   background:#1e3a5f;
   color:#cbd5e1;
@@ -355,12 +245,107 @@ footer a:hover{
   opacity:.7;
 }
 
-/* RESPONSIVE */
-@media(max-width:768px){
-  .hero h1{
-    font-size:32px;
+/* ================= RESPONSIVE ================= */
+
+/* TABLET */
+@media(max-width:1024px){
+  nav{
+    padding:15px 6%;
   }
+
+  section{
+    padding:70px 8%;
+  }
+
+  .hero{
+    height:auto;
+    padding:80px 20px;
+  }
+
+  .hero h1{
+    font-size:36px;
+  }
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .menu-toggle{
+    display:flex;
+  }
+
+  nav{
+    flex-wrap:wrap;
+  }
+
+  nav ul{
+    width:100%;
+    flex-direction:column;
+    text-align:center;
+    display:none;
+    margin-top:15px;
+  }
+
+  nav ul.show{
+    display:flex;
+  }
+
+  nav ul li{
+    padding:10px 0;
+  }
+
+  .hero{
+    height:auto;
+    padding:70px 15px;
+  }
+
+  .hero h1{
+    font-size:30px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  .hero a{
+    width:100%;
+    max-width:260px;
+  }
+
+  section{
+    padding:60px 6%;
+  }
+
+  .section-title h2{
+    font-size:28px;
+  }
+
   .founder-box{
     grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  .founder img{
+    margin:auto;
+  }
+
+  .quote{
+    border-left:none;
+    border-top:3px solid var(--secondary);
+    padding-top:15px;
+  }
+}
+
+/* SMALL MOBILE */
+@media(max-width:480px){
+  .hero h1{
+    font-size:26px;
+  }
+
+  .section-title h2{
+    font-size:24px;
+  }
+
+  .card{
+    padding:22px;
   }
 }
