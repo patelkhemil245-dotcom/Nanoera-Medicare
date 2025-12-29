@@ -123,12 +123,7 @@
 </footer>
 
 <!-- JS FOR MOBILE TOGGLE -->
- <script src="https://cdn.emailjs.com/sdk/3.2.0/email.min.js"></script>
-<script>
-  (function(){
-    emailjs.init("pbvtcCfA5C6ncYG0Q"); // Replace with your EmailJS public key
-  })();
-</script>
+ 
 
 <script>
   const toggleBtn = document.getElementById("menuToggle");
@@ -138,22 +133,28 @@
     navMenu.classList.toggle("show");
   });
 
-  const form = document.getElementById("contactForm");
+   document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("contactForm");
 
-  form.addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent default form submission
+    form.addEventListener("submit", function (e) {
+      e.preventDefault();
 
-    emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
-      .then(() => {
-        alert('Message sent successfully!');
-        form.reset(); // Clear the form
-      }, (error) => {
-        console.error('Failed to send message:', error);
-        alert('Oops! Something went wrong. Please try again.');
-      });
+      const name = encodeURIComponent(document.getElementById("name").value);
+      const email = encodeURIComponent(document.getElementById("email").value);
+      const message = encodeURIComponent(document.getElementById("message").value);
+
+      const to = "divyeshrupala789@gmail.com"; // your email address
+      const subject = encodeURIComponent("New contact form message");
+      const body = encodeURIComponent(
+        "Name: " + name +
+        "\nEmail: " + email +
+        "\n\nMessage:\n" + message
+      );
+
+      const mailtoLink = `mailto:${to}?subject=${subject}&body=${body}`;
+      window.location.href = mailtoLink;
+    });
   });
-
 </script>
-
 </body>
 </html>
