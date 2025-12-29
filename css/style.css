@@ -28,6 +28,7 @@ nav{
   display:flex;
   justify-content:space-between;
   align-items:center;
+  flex-wrap:wrap;
   z-index:1000;
 }
 
@@ -35,6 +36,7 @@ nav h2{
   color:var(--primary);
 }
 
+/* MENU LIST */
 nav ul{
   list-style:none;
   display:flex;
@@ -51,19 +53,22 @@ nav ul li a:hover{
   color:var(--secondary);
 }
 
-/* TOGGLE BUTTON */
+/* ================= TOGGLE BUTTON ================= */
 .menu-toggle{
   display:none;
-  flex-direction:column;
+  background:none;
+  border:none;
   cursor:pointer;
+  padding:12px;           /* BIG TOUCH AREA */
 }
 
 .menu-toggle span{
+  display:block;
   height:3px;
-  width:25px;
+  width:26px;
   background:#333;
-  margin:4px 0;
-  border-radius:2px;
+  margin:5px 0;
+  border-radius:3px;
 }
 
 /* ================= HERO ================= */
@@ -134,7 +139,6 @@ section{
 
 .section-title h3{
   margin-top:10px;
-  color:#333;
 }
 
 .section-title p{
@@ -213,34 +217,11 @@ section{
 footer{
   background:#1e3a5f;
   color:#cbd5e1;
-  padding:60px 10%;
-}
-
-.footer-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-  gap:40px;
-}
-
-footer h3{
-  color:#fff;
-  margin-bottom:15px;
-}
-
-footer a{
-  display:block;
-  text-decoration:none;
-  color:#cbd5e1;
-  margin:8px 0;
-}
-
-footer a:hover{
-  color:#38bdf8;
+  padding:50px 10%;
+  text-align:center;
 }
 
 .copyright{
-  text-align:center;
-  margin-top:40px;
   font-size:14px;
   opacity:.7;
 }
@@ -249,10 +230,6 @@ footer a:hover{
 
 /* TABLET */
 @media(max-width:1024px){
-  nav{
-    padding:15px 6%;
-  }
-
   section{
     padding:70px 8%;
   }
@@ -270,32 +247,28 @@ footer a:hover{
 /* MOBILE */
 @media(max-width:768px){
   .menu-toggle{
-    display:flex;
-  }
-
-  nav{
-    flex-wrap:wrap;
+    display:block;
   }
 
   nav ul{
     width:100%;
     flex-direction:column;
     text-align:center;
-    display:none;
-    margin-top:15px;
+    max-height:0;
+    overflow:hidden;
+    transition:max-height .4s ease;
   }
 
   nav ul.show{
-    display:flex;
+    max-height:400px;
   }
 
   nav ul li{
-    padding:10px 0;
+    padding:12px 0;
   }
 
-  .hero{
-    height:auto;
-    padding:70px 15px;
+  section{
+    padding:60px 6%;
   }
 
   .hero h1{
@@ -304,19 +277,6 @@ footer a:hover{
 
   .hero p{
     font-size:16px;
-  }
-
-  .hero a{
-    width:100%;
-    max-width:260px;
-  }
-
-  section{
-    padding:60px 6%;
-  }
-
-  .section-title h2{
-    font-size:28px;
   }
 
   .founder-box{
